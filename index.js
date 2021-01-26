@@ -65,8 +65,14 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(){
-    return Math.floor(Math.random() * 3);
+function inning(max){
+  return Math.floor(Math.random() * Math.floor(3));
+}
+function inningsScore(inning) {
+  return {
+      Home: inning(),
+      Away: inning()
+  }
 }
 
 console.log(inningsScore(inning));
