@@ -92,8 +92,19 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function finalScore(/*code Here*/){
-  /*Code Here*/
+function finalScore(inning, innings) {
+    
+  let home = 0;
+  let away = 0;
+  
+  for (let i = 0; i <= innings; i++) {
+      home += inning();
+  }
+  for (let i = 1; i <= innings; i++) {
+      away += inning();
+  }
+  return `Home:${home}
+          Away:${away}`;
 }
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
@@ -147,8 +158,22 @@ Use the scoreboard function below to do the following:
 ]  
   */
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard(inningScore, inningCB, totalInnings) {
+  let score = [];
+  let homeTotal = 0;
+  let awayTotal = 0;
+  for (let i = 0; i < totalInnings; i++) {
+    let currentInning = inningScoreCB(inningCB);
+    homeTotal = homeTotal + currentInning.Home;
+    awayTotal = awayTotal + currentInning.Away;
+    score.push(`Inning ${i + 1}: Away $currentInning.Away] - Home ${currentInning.Home}`);
+  }
+  if (awayTotal !== homeTotal) {
+    score.push(`Final Score: Away ${awayTotal} - Home ${homeTotal}`)
+  } else {
+    score.push(`This game will require extra innings: Away ${awayTotal} - Home ${homeTotal}`)
+  }
+  return score;
 }
 
 
